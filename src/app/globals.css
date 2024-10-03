@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f7f7f7;
+  --foreground: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--background);
+  background: var(--foreground);
+  font-family: theme(fontFamily.montserrat);
+  min-height: 100dvh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  max-width: 90rem;
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .button {
+    @apply relative bottom-[195px] z-50 flex size-10 items-center justify-center rounded-full bg-white shadow-[0_1px_15px_-1px_#626262] transition-all duration-100 hover:scale-110;
+  }
+}
