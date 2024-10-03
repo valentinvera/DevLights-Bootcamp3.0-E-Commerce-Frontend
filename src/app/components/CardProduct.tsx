@@ -17,11 +17,14 @@ interface ProductProps {
 }
 
 const CardProduct = async () => {
-  const data = await fetch("https://devlights-bootcamp3-0-e-commerce-backend.onrender.com/product/getProducts", {
-    headers: {
-      "Cache-Control": "no-cache",
+  const data = await fetch(
+    "https://devlights-bootcamp3-0-e-commerce-backend.onrender.com/product/getProducts",
+    {
+      headers: {
+        "Cache-Control": "no-cache",
+      },
     },
-  })
+  )
   const products: ProductProps[] = await data.json()
 
   return (
@@ -35,7 +38,7 @@ const CardProduct = async () => {
                 { imageUrl, name, description, price, discount, discountedPrice, rating },
                 index,
               ) => (
-                <li key={index} className="w-[284.27px] bg-white">
+                <li key={index} className="bg-white">
                   <Link href="">
                     <Image
                       className="h-[207.35px] w-[284.27px] object-cover"
@@ -44,12 +47,16 @@ const CardProduct = async () => {
                       width={284.27}
                       height={207.35}
                     />
-                    <div className="pl-2">
+                    <div className="w-[284.27px] pl-2 pt-2">
                       <h3 className="text-lg font-medium">{name}</h3>
                       <p className="text-base font-normal">{description}</p>
                       <span className="block text-lg font-medium">$ {price}</span>
-                      <span className="block text-lg font-bold">{discountedPrice}</span>
-                      <span className="block text-[10px]">{discount}</span>
+                      <div className="flex gap-2">
+                        <span className="price-crossed-out block text-xs font-light text-[#BBBBBB]">
+                          ${discountedPrice}
+                        </span>
+                        <span className="block text-[10px] text-[#FE735C]">{discount}%Off</span>
+                      </div>
                       <span className="block">{rating.average}</span>
                       <span className="block text-[10px] text-[#A4A9B3]">{rating.count}</span>
                     </div>
