@@ -37,7 +37,7 @@ body {
 
 @layer components {
   .button {
-    @apply relative bottom-[195px] z-50 flex size-10 items-center justify-center rounded-full bg-white shadow-[0_1px_15px_-1px_#626262] transition-all duration-100 hover:scale-110;
+    @apply z-50 flex size-10 items-center justify-center rounded-full bg-white p-3 shadow-[0_1px_15px_-1px_#626262] backdrop-blur-sm transition-all duration-100 hover:scale-110;
   }
 }
 
@@ -46,5 +46,24 @@ body {
 }
 
 .price-crossed-out {
-  text-decoration-line: line-through;
+  position: relative;
+  display: inline-block;
+  color: grey;
+}
+
+.price-crossed-out::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: -1px;
+  right: -40px;
+  border-top: 0.5px solid #808488;
+  z-index: 1;
+}
+
+.borde-modificado {
+  border-top: 20px solid white;
+  border-bottom: 20px solid white;
+  border-right: 20px solid white;
+  border-left: none;
 }

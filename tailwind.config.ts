@@ -12,6 +12,9 @@ const config: Config = {
       fontFamily: {
         montserrat: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(90deg, #EFAD18 25%, #F8D7B4 100%)",
+      },
     },
   },
   plugins: [],
